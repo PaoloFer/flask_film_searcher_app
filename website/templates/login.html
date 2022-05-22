@@ -1,0 +1,30 @@
+
+{%extends "template.html"%}
+{% block title%}Login{%endblock%}
+{%block content%}
+    
+<div class="login-container ">
+
+  <form class="login_custom"method="POST">
+    <h3 id="title">Login</h3>
+    <div class="form-group">
+      <label for="email">Username</label>
+      <input type="text" class="form-control" name="username" placeholder="Inserire Username"/>
+      <br>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Inserire password "/>
+    </div>
+    <br />
+    <p id="password_reset">dimenticato la password?</p>
+      <button type="submit" class="btn btn-primary" style="background-color: #1B065E;">Login</button>
+  </form>
+
+</div>
+{%endblock%}

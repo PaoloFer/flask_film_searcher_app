@@ -1,0 +1,29 @@
+
+{%extends "template.html"%}
+{% block title%}Sign-up{%endblock%}
+{%block content%}
+    
+<div class="sign-up-container ">
+
+  <form class="login_custom" method="POST">
+    <h3 id="title">Registrati</h3>
+    <div class="form-group">
+      <label for="email">Username</label>
+      <input type="text" class="form-control" name="username" placeholder="Inserire Username"/>
+      <br>
+    </div>
+    <div class="form-group">
+      <label for="password">Password (7 caratteri min)</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Inserire password "/>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="password">Ripeti password</label>
+        <input type="password" class="form-control" id="password" name="password2" placeholder="Inserire password "/>
+    </div>
+
+      <button type="submit" class="btn btn-primary" style="background-color: #1B065E;">Registrati</button>
+  </form>
+
+</div>
+{%endblock%}

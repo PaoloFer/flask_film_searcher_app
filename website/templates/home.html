@@ -1,0 +1,71 @@
+
+{%extends "template.html"%}
+{% block title%}Login{%endblock%}
+{%block content%}
+    <form class="search-bar" method="POST">
+        <div class="bar">
+            <input type="text" class="bar-input" name="search-bar" placeholder="Cerca film" autocomplete="off"/>
+            <button type="submit" class="bar-button " ><img src="static\img\_search_.png" ></button>
+        </div>
+    </form>
+    <section class="most-views">
+          
+            {%if name != ""%}    
+            {%for element in scraping.SearchData(name)%}
+                <div class="film">
+                    <div class="custom-card" >
+                        <div class="row g-0">
+                            <div class="col-md-4">
+        
+                                <div class="immagine">
+                                    <a href={{element[2]}}>
+                                        <img src={{scraping.GetImage(element[0])}} class="img-fluid rounded-start" alt="...">
+                                    </a>
+                                </div>
+                            
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="font-size:  15px;"><a href={{element[2]}} >{{element[1][:element[1].find("aka")]}}</a></h5>
+                                    <p class="card-text"></p>
+                                    <p class="card-text"><small class="text-muted"></small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                {%endfor%}
+            {%else%}
+            {%for element in range(10)%}
+                <div class="film" loading="lazy">
+                <div class="custom-card" >
+                    <div class="row g-0">
+                        <div class="col-md-4">
+
+                            <div class="immagine">
+                                <a href=link[element]> 
+                                <img src={{image[element]}} class="img-fluid rounded-start" alt="...">
+                                </a>   
+                            </div>
+                        
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-size: 15px;"><a href={{link[element]}} >{{title[element]}}</a></h5>
+                                <p class="card-text"></p>
+                                <p class="card-text"><small class="text-muted"></small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {%endfor%}
+            {%endif%}
+            
+
+        
+        
+        
+        
+
+    </section>
+{%endblock%}
