@@ -10,7 +10,7 @@ from flask import Flask, render_template ,redirect,request,flash
 from scraping import Scraping
 import hashlib
 from login  import CustomLogin
-
+import os
 
     #server per svuotare i file
 open("txtdata/data_film_link.txt", "w").close()
@@ -58,4 +58,5 @@ def fpage():
 
     return render_template("index.html")
 
-app.run()
+port = int(os.environ.get('PORT', 33507))
+app.run( port=port, debug=True) 
