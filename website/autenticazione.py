@@ -26,7 +26,7 @@ def login():
                 flash("Dati corretti!")
                 return  redirect("/home")
 
-    return render_template("login.html")
+    return render_template("index.html")
 
 @autentica.route("/sign-up",methods =['GET','POST'])
 def singin():

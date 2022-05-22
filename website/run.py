@@ -17,8 +17,7 @@ def crea_app():
     open("website/txtdata/data_film_title.txt", "w").close()
     open("website/txtdata/data_img.txt", "w").close()
     
-    search = Scraping()
-    search.GetData()
+    
     
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'hjshjhdjah kjshkjdhjs'
@@ -53,9 +52,11 @@ def crea_app():
             else:
                 if user.validate():
                     flash("Dati corretti!")
+                    search = Scraping()
+                    search.GetData()
                     return  redirect("/home")
 
-        return render_template("login.html")
+        return render_template("index.html")
 
     return app
 
