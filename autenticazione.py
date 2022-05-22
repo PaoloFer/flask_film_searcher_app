@@ -37,7 +37,7 @@ def singin():
         user= CustomLogin(username,password)
 
         if len(password) < 7 and len(password) != 0:
-            flash('Password sbagliata', category='error')
+            flash('La Password deve contenere almeno 7 caratteri ', category='error')
         elif password != password2:
             flash('Password 1 diversa da Password 2', category='error')
         elif user.verifica():
