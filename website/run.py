@@ -11,55 +11,51 @@ from scraping import Scraping
 import hashlib
 from login  import CustomLogin
 
-def crea_app():
+
     #server per svuotare i file
-    open("website/txtdata/data_film_link.txt", "w").close()
-    open("website/txtdata/data_film_title.txt", "w").close()
-    open("website/txtdata/data_img.txt", "w").close()
+open("website/txtdata/data_film_link.txt", "w").close()
+open("website/txtdata/data_film_title.txt", "w").close()
+open("website/txtdata/data_img.txt", "w").close()
     
     
     
-    app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'hjshjhdjah kjshkjdhjs'
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'hjshjhdjah kjshkjdhjs'
 
 
-    #importo le varie Blueprint create negli altri file
-    from visuallizzato import visualizza
-    from autenticazione import autentica
+#importo le varie Blueprint create negli altri file
+from visuallizzato import visualizza
+from autenticazione import autentica
 
     #aggiungo le Blueprint nell'app (i prefissi metto solo la backslash altrimenti implicherebbe la creazione di url inutilmente lunghi per accedere a delle pagine web)
-    app.register_blueprint(visualizza,url_prefix="/") 
-    app.register_blueprint(autentica,url_prefix="/")
+app.register_blueprint(visualizza,url_prefix="/") 
+app.register_blueprint(autentica,url_prefix="/")
 
-    scraping=Scraping()
-    @app.route("/", methods=["GET","POST"])
-    def fpage():
-        if request.method == 'POST':
-            username= request.form.get("username")
-            print(username)
-            password=request.form.get("password")
-            password=(hashlib.md5(password.strip().encode())).hexdigest()
-            user= CustomLogin(username,password)
+scraping=Scraping()
+@app.route("/", methods=["GET","POST"])
+def fpage():
+    if request.method == 'POST':
+        username= request.form.get("username")
+        print(username)
+        password=request.form.get("password")
+        password=(hashlib.md5(password.strip().encode())).hexdigest()
+        user= CustomLogin(username,password)
             
-            if len(password) < 7 and len(password) != 0:
-                flash('Password sbagliata', category='error')
-            elif not(user.verifica()):
+        if len(password) < 7 and len(password) != 0:
+            flash('Password sbagliata', category='error')
+        elif not(user.verifica()):
                 #verifico questo in quanto sennò viene continuamente segnalato un messaggio anche se non viene inserito nulla come input
-                if len(username)==0:
-                    pass
-                else:
-                    flash("Nome utente non esistente. Prova con uno diverso",category='error')
+            if len(username)==0:
+                pass
             else:
-                if user.validate():
-                    flash("Dati corretti!")
-                    search = Scraping()
-                    search.GetData()
-                    return  redirect("/home")
+                flash("Nome utente non esistente. Prova con uno diverso",category='error')
+        else:
+            if user.validate():
+                flash("Dati corretti!")
+                search = Scraping()
+                search.GetData()
+                return  redirect("/home")
 
-        return render_template("index.html")
+    return render_template("index.html")
 
-    return app
-
-
-app = crea_app()
 app.run()
