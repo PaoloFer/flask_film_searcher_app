@@ -60,6 +60,6 @@ def crea_app():
 
     return app
 
-if __name__ =="__main__":
-    app = crea_app()
-    app.run(debug=True)
+
+app = crea_app()
+app.run()
