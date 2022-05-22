@@ -1,6 +1,6 @@
 
 from flask import Blueprint, render_template, request
-from .scraping import Scraping
+from scraping import Scraping
 
 visualizza= Blueprint("visualizza",__name__)
 

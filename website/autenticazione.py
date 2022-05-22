@@ -1,6 +1,6 @@
 
 from flask import Blueprint, redirect, render_template,request,flash
-from .login import CustomLogin
+from login import CustomLogin
 import hashlib
 
 autentica= Blueprint("autentica",__name__)
