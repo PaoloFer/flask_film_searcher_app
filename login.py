@@ -20,7 +20,7 @@ class CustomLogin:
     def __init__(self,username,password):
         self.username = username
         self.password = (hashlib.md5(password.strip().encode())).hexdigest() #codifico la password con l'algoritmo di hashing di linux
-        data = open("website/txtdata/data_login.txt")
+        data = open("txtdata/data_login.txt")
         self.datas = data.readlines() #--> uso readlines per poter ottenere le righe del file sottoforma di array in quanto voglio il formato[username,password]
         
     def _usernames(self):
@@ -73,8 +73,8 @@ class CustomLogin:
             print("This username already exist change it.")
 
     def login(self):
-        if self._verifica():
-            self._validate()
+        if self.verifica():
+            self.validate()
         else:
             print("account does not exist. Try to use other credential")
 

@@ -30,9 +30,9 @@ class Scraping:
         """
         Questo metodo aggiunge al file data_file.txt i 100 elementi messi dal sito 
         """
-        data1 = open("website/txtdata/data_film_title.txt","a")
-        data2 = open("website/txtdata/data_img.txt","a")
-        data3 = open("website/txtdata/data_film_link.txt","a")
+        data1 = open("txtdata/data_film_title.txt","a")
+        data2 = open("txtdata/data_img.txt","a")
+        data3 = open("txtdata/data_film_link.txt","a")
 
 
 
@@ -69,7 +69,7 @@ class Scraping:
         -cose da fare per evitare di fare migliaia di request o utilizzare il multithread per velocizzare il tutto o non caricare le immagini
         """
         #//Part_1 of FindImage//
-        data2= open("website/txtdata/data_img.txt","a")
+        data2= open("txtdata/data_img.txt","a")
         #create the new link adding the HOME to it and then send a request at that URL to get the page we want
         NewLink=self.HOME+link
         response=requests.get(NewLink)

@@ -13,9 +13,9 @@ def home():
     else:
         name=""
 
-    title=open("website/txtdata/data_film_title.txt","r")
-    image=open("website/txtdata/data_img.txt","r")
-    link=open("website/txtdata/data_film_link.txt","r")
+    title=open("txtdata/data_film_title.txt","r")
+    image=open("txtdata/data_img.txt","r")
+    link=open("txtdata/data_film_link.txt","r")
 
     title_l=title.readlines()
     image_l=image.readlines()

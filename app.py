@@ -13,9 +13,9 @@ from login  import CustomLogin
 
 
     #server per svuotare i file
-open("website/txtdata/data_film_link.txt", "w").close()
-open("website/txtdata/data_film_title.txt", "w").close()
-open("website/txtdata/data_img.txt", "w").close()
+open("txtdata/data_film_link.txt", "w").close()
+open("txtdata/data_film_title.txt", "w").close()
+open("txtdata/data_img.txt", "w").close()
     
     
     

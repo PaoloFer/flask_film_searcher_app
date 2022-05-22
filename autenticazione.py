@@ -47,11 +47,11 @@ def singin():
             else:
                 flash("Nome utente già esistente. Prova con uno diverso",category='error')
         else:
-            with open("website/txtdata/data_login.txt","a") as data:
+            with open("txtdata/data_login.txt","a") as data:
                 data.write(f"\n{username} {(hashlib.md5(password.strip().encode())).hexdigest()}")
                 print(f"Added correctly usernmate:{username} password:"+("*"*len(password)))
 
-            with open(f"website/accountxt/{username}.txt", "w") as user:
+            with open(f"accountxt/{username}.txt", "w") as user:
                 
                 user.close()
 
