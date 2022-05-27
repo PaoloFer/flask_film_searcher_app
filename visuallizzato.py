@@ -7,6 +7,7 @@ visualizza= Blueprint("visualizza",__name__)
 @visualizza.route("/home", methods=["GET","POST"])
 def home():
     scraping=Scraping()
+    scraping.GetData()
     
     if request.method == "POST" and request.form.get("search-bar") != "":
         name = request.form.get("search-bar")
