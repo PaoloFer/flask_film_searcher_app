@@ -167,4 +167,3 @@ class Scraping:
 
 if __name__ == "__main__":
     web = Scraping()
-    web.SearchData("batman")
